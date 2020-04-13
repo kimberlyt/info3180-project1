@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+
+{% block main %} 
+<div class="card card_profiles individual">
+
+    <div class="container container-mx">
+        <div class="row padding-bottom">
+             
+           
+            <div class="col-sm i-img">
+                {% if profile.filename %}
+                
+                <img  class="individual-img" src="{{ url_for('static',filename='uploads/' + profile.filename)}}">
+                
+                {% endif%}
+             
+            </div>
+                  
+          <div class="col-sm ">
+            <h3><strong>{{profile.firstname}} {{profile.lastname}} </strong><br></h3>
+            <p class="space"><i class="fa fa-envelope-o" aria-hidden="true"></i>  {{profile.email}}<br></p>
+            <p class="space"><i class="fa fa-map-marker" aria-hidden="true"></i>   {{profile.location}}</p>
+            <p class="space"><i class="fa fa-calendar" aria-hidden="true"></i>   {{profile.time_created}}</p>
+          </div>
+          
+        </div>
+        <div class="row padding-bottom">
+             
+           
+            <div class="col-sm ">
+                <h6>About Me</h6>
+                
+                <p>{{profile.biography}}</p>
+             
+            </div>
+                  
+        </div>
+
+        <div class="row padding-bottom">
+             
+           
+            <div class="col-sm text-center">
+                    <button type="submit" class="submit submit-btn">Send Message</button>
+            </div>
+            <div class="col-sm text-center">
+                <button type="submit" class="submit  btn-btn" style="border-radius: 9px;background-color: #007bff;border: none;color: white;padding: 9px 22px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;">Follow</button>
+            </div>
+                  
+        </div>
+
+    </div>
+
+
+   
+</div>
+{% endblock %} 
