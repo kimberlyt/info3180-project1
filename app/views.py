@@ -31,6 +31,12 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Kimberly Taylor")
 
+    
+@app.route('/test/')
+def test():
+    """Render the website's about page."""
+    return render_template('test.html')
+
 @app.route('/profiles')
 def profiles():
     list=[]
