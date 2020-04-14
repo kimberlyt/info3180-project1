@@ -29,15 +29,15 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Kimberly Taylor")
 
 @app.route('/profiles')
 def profiles():
     list=[]
-    profiles = Profiles.query.all()
+    profile = Profiles.query.all()
     filenames = get_uploaded_images()
 
-    return render_template('profiles.html', profiles=profiles, filenames=filenames)
+    return render_template('profiles.html', profile=profile, filenames=filenames)
 
 def get_uploaded_images():
     list = []

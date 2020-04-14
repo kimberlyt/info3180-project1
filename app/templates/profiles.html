@@ -1,47 +1,48 @@
-{% extends 'base.html' %} 
-
-{% block main %} 
+{% extends 'base.html' %} {% block main %}
 <div style="margin: 0 14%;">
-    <h1 style="color: black; ">Profiles</h1><br><br>
-  </div>
-  {% include 'flash_messages.html' %}
-  <div >
-    {%for user in profiles%}
-    <div class="card card_profiles">
-        
-        <div class="container">
-            <div class="row">
-                 
-               
-                <div class="col-sm text-center">
-                    {% for file in filenames%}
-                    {% if file== user.filename%}
-                    
-                        <img class="profiles-img" src="{{ url_for('static', filename='uploads/' + file)}}">
-                    
-                    {% endif%}
-                    {% endfor %}
-                 
-                </div>
-                      
-              <div class="col-sm ">
-                <p class="sizefont"><strong class="size-boost">{{user.firstname}} {{user.lastname}} </strong><br>
-                 <i class="fa fa-user" aria-hidden="true"></i>  {{user.gender}}<br>
-                 <i class="fa fa-map-marker" aria-hidden="true"></i>   {{user.location}}</p>
-              </div>
-              <div class="col-sm text-center">
-                <form action="{{ url_for('userprofile',userid=user.id) }}" method="post">
-                    <button type="submit" class="submit submit-btn btnn" >View Profile</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        
-        
-    
+  <h1 style="color: black;">Profiles</h1>
+  <br /><br />
+</div>
+{% include 'flash_messages.html' %}
+<div>
+  {%for user in profile%}
+  <div class="card card_profiles">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm text-center">
+          {% for file in filenames%} {% if file== user.filename%}
+
+          <img
+            class="profiles-img"
+            src="{{ url_for('static', filename='uploads/' + file)}}"
+          />
+
+          {% endif%} {% endfor %}
+        </div>
+
+        <div class="col-sm">
+          <p class="sizefont">
+            <strong class="size-boost"
+              >{{user.firstname}} {{user.lastname}} </strong
+            ><br />
+            <i class="fa fa-user" aria-hidden="true"></i> {{user.gender}}<br />
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            {{user.location}}
+          </p>
+        </div>
+        <div class="col-sm text-center">
+          <form
+            action="{{ url_for('userprofile',userid=user.id) }}"
+            method="post"
+          >
+            <button type="submit" class="submit submit-btn btnn">
+              View Profile
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-  
-    {% endfor %}
+  </div>
 
-
-{% endblock %}   
+  {% endfor %} {% endblock %}
+</div>

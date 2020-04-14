@@ -1,7 +1,7 @@
 from . import db
 
 class Profiles(db.Model):
-
+    
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(88))
     lastname = db.Column(db.String(88))
